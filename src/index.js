@@ -5,20 +5,22 @@ import './todos.css';
 const $todoForm = document.querySelector('#todo-form');
 const $input = document.querySelector('#input');
 
-const todos = [
-  {
-    id: 1,
-    text: 'js공부',
-  },
-];
+const todos = [];
 const todoModel = {
   id: '',
   text: '',
 };
 
 $todoForm.addEventListener('submit', (event) => {
-  console.log($input.value);
   event.preventDefault();
+
+  todos.push({
+    ...todoModel,
+    text: $input.value,
+  });
+
+  $input.value = '';
+  render(todos);
 });
 
 render(todos);
