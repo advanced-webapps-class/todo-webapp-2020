@@ -8,7 +8,9 @@ const $result = document.querySelector('#result');
 
 $result.addEventListener('click', (event) => {
   if (event.target.className === 'delete') {
-    console.log('delete');
+    const { index } = event.target.parentElement.dataset;
+    todos.splice(index, 1);
+    render(todos);
   }
 });
 
