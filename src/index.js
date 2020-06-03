@@ -11,6 +11,10 @@ $result.addEventListener('click', (event) => {
     const { index } = event.target.parentElement.dataset;
     todos.splice(index, 1);
     render(todos);
+  } else if (event.target.className === 'toggle-checked') {
+    const { index } = event.target.parentElement.dataset;
+    todos[index].isDone = !todos[index].isDone;
+    render(todos);
   }
 });
 
